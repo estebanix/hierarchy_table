@@ -8,8 +8,11 @@
 }
 
 button{
-  cursor: pointer;
-}
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 700;
+  cursor: pointer;}
 
 .nav--container{
   width: 100%;
@@ -22,4 +25,43 @@ button{
   color: #252523;
   font-weight: 700;
   font-size: 0.9em;
+}
+
+.component--box{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 4%;
+  color: white;
+  gap: 10px;
+  font-size: 0.9em;
+  position: relative;
+}
+
+.component--box.even {
+  background-color: #2C2C2B; 
+}
+
+.component--box.odd {
+background-color: #1A1C1A;
+} 
+
+.component--box p, .component--box button, .nav--container p{
+  width: 10%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.delete--btn{
+  color: red;
+  background-color: transparent;
+  border: none;
+}
+
+.caret--btn{
+  position: absolute;
+  left: 10px;
+  color: white;
 }

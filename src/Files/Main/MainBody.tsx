@@ -2,6 +2,9 @@ import { Context } from "../../Context/Context";
 import { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown} from '@fortawesome/free-solid-svg-icons';
+import CharacterNav from "../Character/CharacterNav";
+import CharacterBody from "../Character/CharacterBody";
+
 
 export default function MainBody(){
     const {data, setData, expandedRows, setExpandedRows} = useContext(Context);
@@ -36,22 +39,25 @@ export default function MainBody(){
     
     const isExpanded = expandedRows[ID];
 
-        return <div className={rowColor}>
-                <button onClick={() => showSubRow(ID)} className="caret--btn" style={{display:`${ID == 48 && "none"}`}}><FontAwesomeIcon icon={faCaretDown} /></button>
-                <p>{ID}</p>
-                <p>{Name}</p>
-                <p>{Gender}</p>
-                <p>{Ability}</p>
-                <p>{minimalDistance}</p>
-                <p>{Weight}</p>
-                <p>{Born}</p>
-                <p>{inSpaceSince}</p>
-                <p>{beerConsumption}</p>
-                <p>{knowAsnwer}</p>
-                <button className="delete--btn" onClick={() => deleteRow(ID)}>X</button>
+        return <div className={rowColor} style={{flexDirection:"column"}}>
+                    <div className={rowColor}>
+                        <button onClick={() => showSubRow(ID)} className="caret--btn" style={{display:`${ID == 48 && "none"}`}}><FontAwesomeIcon icon={faCaretDown} /></button>
+                        <p>{ID}</p>
+                        <p>{Name}</p>
+                        <p>{Gender}</p>
+                        <p>{Ability}</p>
+                        <p>{minimalDistance}</p>
+                        <p>{Weight}</p>
+                        <p>{Born}</p>
+                        <p>{inSpaceSince}</p>
+                        <p>{beerConsumption}</p>
+                        <p>{knowAsnwer}</p>
+                        <button className="delete--btn" onClick={() => deleteRow(ID)}>X</button>
+                    </div>
                 {isExpanded && (
                 <>
-                <h1>{Name}</h1>
+                    <CharacterNav />
+                    <CharacterBody rowData={dat.children.has_nemesis.records} />
                 </>
         )}
         </div>

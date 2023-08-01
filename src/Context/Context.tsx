@@ -12,7 +12,7 @@ export const Context = createContext<ContextType>({} as ContextType);
 
 const ContextProvider = (props: any) => {
   const [data, setData] = useState(Datas);
-  const [expandedRows, setExpandedRows] = useState({});
+  const [expandedRows, setExpandedRows] = useState<any[]>([]);
 
   return (
     <Context.Provider

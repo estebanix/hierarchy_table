@@ -14,14 +14,14 @@ interface NemesisBodyProps {
 
 export default function NemesisBody(props: NemesisBodyProps) {
   const { rowData } = props;
-  const [data, setData] = useState<RowData[]>(rowData);
+  const [nemesisData, setNemesisData] = useState<RowData[]>(rowData);
 
   const deleteRow = (delRowID: string) => {
-    const updatedData = data.filter((row) => row.data.ID !== delRowID);
-    setData(updatedData);
+    const updatedData = nemesisData.filter((row) => row.data.ID !== delRowID);
+    setNemesisData(updatedData);
   };
 
-  const nemesisComponents = data.map((dat) => {
+  const nemesisComponents = nemesisData.map((dat) => {
     const { ID, "Nemesis ID": nemesisID, "Secrete Code": secretCode } = dat.data;
     return (
       <div className="nemesis--box" key={ID}>
